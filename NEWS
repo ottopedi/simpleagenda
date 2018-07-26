@@ -1,0 +1,200 @@
+version 0.44 (2017/11/20)
+	* Fix missing -document methods in appointment and tasks editor
+	* Compilation warnings fixes from Yavor Doganov
+	* autoconf & co fixes also from Yavor Doganov
+	* Change main window geometry (make all views visible)
+
+version 0.43 (2012/09/15)
+	* Fix ticket #19 : preface.h doesn't exist anymore in GNUstep
+	  so stop including it just for the MAX macro
+	* Fix ticket #18 with a patch from Sebastian
+	  (note to self : learn shell syntax)
+	* Fix ticket #20 with a patch from Sebastian
+	* Add Italian translation from Bertalan Ivan
+	* Start conversion from badly written threaded code to NSOperation
+	* New implementation of ConfigManager (again...)
+	* Make the main window closable
+	* Fix race between store loading and window first display
+	* Implement an old feature request from Dennis Leeuw : in the day view
+	  you can right click on an appointment and make it sticky. You won't be
+	  able to mistakenly move it or resize it.
+	* Add a contextual menu to move an appointment from a calendar to another
+	* Type 'make tests=yes' to build and run the 'testsuite'
+
+version 0.42 (2011/04/27)
+	* Bug fixes and code cleanups
+	* Handle read only stores when cut & pasting elements
+	* Simple reminders/alarms handling with multiple backends
+	* Alarm editor for events and tasks with basic functionalities
+	* New images from OpenClipArt (bell_gold.svg)
+	* Fix ticket #12 : timezone problems with recurrent events
+	* Use calendar instead of store and agenda in the ui
+	* Handle due date in tasks
+	* Fix URL handling for GroupDAV calendars, tested against
+	  Citadel and OGO
+	* Enable copy/paste on multiple elements (select with control key)
+	* Don't write authentication informations on the stdout (see ticket #17)
+
+version 0.41 (2010/03/15)
+	* Threads/memory pools/notifications fixes
+	* Fix silly bugs in the makefile when using conditions : we
+	  always tried to link with libuuid and Addresses even when
+	  configure didn't detect them
+	* Big changes in ConfigManager : it doesn't retain its listeners
+	  anymore and listeners are now global. It means that you can
+	  register for any key with any ConfigManager instance.
+	* New ABStore that creates birthday events from Addresses contacts
+	  if the Addresses framework is available.
+	* New application icon from OpenClipArt
+
+version 0.40 (2010/03/05)
+	* Display tooltips over appointments if the user want them
+	* Use libuuid to generate unique event ids if available
+	* Fix ticket #13 : iCalendar stores can use local files
+	* The appointment editor becomes non modal
+	* The task editor becomes non modal
+	* Internationalization infrastructure and beginning of a french
+	  translation
+	* Set application title from the selected date and tab
+	* Show today's date in the appicon
+	* Use a human readable description for colors in defaults
+	* Show time in the appicon
+	* Add a new UI Preferences panel and use it for tooltips and
+	  date and time in the appicon
+	* Full keyboard navigation in appointment and task dialogs
+ 	  (you can use the Tab key in the description fields, yeah !)
+	* Better navigation performances with lots of appointments
+	* Bug fixes thanks to Fred Kiefer, James Jordan, Sergey Golovin
+	  and Sebastian Reitenbach
+
+version 0.39 (2009/09/20)
+	* Code cleanups (as always)
+	* Fix empty Task tab on startup bug
+	* Add configure step to locate libical header and clean
+	  the makefile while we're at it
+	* Allow event selection and edition in the week view
+	* Fix ticket #10 (appointment going past midnight not
+	  shown in the second day view)
+	* Add a slider in the appointment editor to modify the start time
+	* Use a bigger step in the appointment editor sliders
+	  when holding the alt key
+	* Various bug fixes
+
+version 0.38 (2009/03/18)
+	* Fix tickets #6 and #7
+	* Add a preliminary week view
+	* Use a SelectionManager instead of various workarounds
+	* Various code cleanups
+	* Asynchronous load for distant stores on startup (try #3)
+	* Add a tests/ folder with what should become a test suite
+	* Automatic refresh and refresh interval in the preferences
+	  panel, enabled only for the backends that support it
+	* Fix ticket #8
+	* Use libical recurrence handling and remove our old junk
+	* Add menu entries to quickly change the selected date
+	* Change date navigation in the calendar and reduce its size
+
+version 0.37 (2008/11/02)
+	* Fix buglets uncovered by libical 0.41
+	* Fix summary view size on startup
+	* Fix method used to compare dates. Should fix multiple bugs
+	  with recurrent events
+	* Better error handling on webdav resources
+	* Fix week number calculation (ticket #3)
+
+version 0.36 (2008/01/20)
+	* Calendar UI changes : to reduce calendar size, use different
+	  visual hints. Today has a yellow background (unchanged), the
+	  selected day cell is bezeled/pushed (was a bold font) and busy
+	  days use a bold font (instead of a tick mark). Always show six
+	  weeks with black text for the chosen month and white text for
+	  the previous and next ones. Use a defined font size so that it
+	  all fits whatever the user choose as a default size.
+	* Day view : circle through appointments with TAB and edit the
+	  selected one with enter
+	* Day view : no more appointments overlapping. The algorithm is
+	  not 100% correct, we might want to change that in the future
+	* Change license for future GNUstep GPLv3 release compatibility
+	  Thanks to Yavor Doganov for pointing out the issue.
+	* Use ETags to prevent overwriting distant modifications
+	* Add a menu item to force agendas to reload their data
+	* Bug fixes and various improvements
+	* Experimental GroupDAV support : some things work but use with
+	  care. Feedback appreciated
+
+version 0.35 (2007/12/31)
+	* Fix (fingers crossed) timezone bugs and current day timer
+	* New website at http://coyote.octets.fr/simpleagenda
+
+version 0.34 (2007/12/13)
+	* Fix loading and saving logic : when loading an iCalendar,
+	  we used to refresh the view for each appointment and task.
+	  Should be quite faster when loading a big calendar. Also,
+	  stop saving unmodified local calendars on exit.
+	* Fix position for appointments going outside the day view
+	* Show abbreviated date in day view tab
+	* Double click on the calendar to add an appointment
+	* Fix iCalendar stores data refresh timer
+	* Workaround for the element selection problem. Needs a far
+	  better solution.
+
+version 0.33 (2007/12/08)
+	* Fix dates of summary events
+	* Add a visual hint for recurrent events
+	* Fix iCalendar date and duration encoding
+	* Fix pasteboard interaction
+	* Draw appointments with transparency (code from old
+	  http://www.linuks.mine.nu/agenda/agenda-0.1.tar.gz)
+
+version 0.32 (2007/12/07)
+	* Add 'SimpleAgenda/Create Task' service
+	* Internal modifications and refactoring
+	* Add Open tasks category to summary view
+	* Enable 24 hours DayView
+	* Change iCalStore creation to set store writable flag if
+	  possible without erasing existing data
+	* Show days with appointments in MonthView.
+	* Real asynchronous startup for remote stores. Thanks to
+ 	  Dennis Leeuw for this bug report (and many others)
+	* Fix end date processing for recurrent events : events can
+	  repeat for ever or until a specified date
+
+version 0.31 (2007/11/21)
+	* Bug fixes
+	* Appointments sorted by date in the summary
+	* Deleted code to read old Date objects encoding
+	* Update search results when store data change
+
+version 0.30 (2007/11/12)
+	* Refactor code to handle multiple kinds of events
+	* Add simple task (iCalendar VTODO) support
+	* Add a task view
+	* Coherent ui : in summary, day view and task view,
+	  simple click to select and double click to edit
+	* Make calendar view smaller
+	* Fix appointment resize bug in day view
+
+version 0.29 (2007/11/02)
+	* Preferences dialog uses a popup to select categories (r276)
+	* Events text color selectable in store preferences
+	* Fix time zone bugs
+	* Fix iCal authenticated loading
+
+version 0.28
+	* Simple text search
+
+version 0.27 (2007/09/18)
+	* Fix keyboard handling in the day view
+	* Add store creation in preferences dialog
+	* Load iCal stores asynchronously
+	* Fix keyboard navigation in preferences dialog
+
+version 0.26 (2007/08/16)
+	* Save main window geometry
+	* Add a 'Save all' item menu to fsync data
+	* Register SimpleAgenda as an application handling
+	  .ics files and import events when user open one
+	* Add a NEWS file
+	* Fix compilation with gcc 3.3
+	* Fix events dates in the summary
+	* Selecting an event in the summary shows it in the day view

@@ -1,0 +1,37 @@
+About
+=====
+
+SimpleAgenda is an easy to use agenda and calendar application supporting 
+events/appointments and tasks. It is written in Objective-C and uses the 
+GNUstep frameworks. Its major features are:
+
+    * multiple agendas with text and background colors
+    * support local and iCalendar data sources
+    * calendar, day view, week view, summary and tasks view
+    * create, resize and move appointments easily
+    * export individual elements as files and to pasteboard
+    * import .ics files
+    * simple text search
+    * alarms with multiples backends
+
+Dependencies
+============
+
+GNUstep stable version released on 2011/04/14
+(make 2.6.0, base 1.22.0, gui 0.20.0, back 0.20.0)
+libical 0.27 or later
+libuuid (optional)
+Addresses framework (optional)
+DBusKit 0.1 (optional)
+
+
+Author
+=====
+
+Philippe Roussel
+
+
+Contact
+=======
+
+mailto:p.o.roussel@free.fr
